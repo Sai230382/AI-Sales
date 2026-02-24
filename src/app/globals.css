@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #0a0e1a;
+  --color-foreground: #ffffff;
+
+  --color-card: rgba(255, 255, 255, 0.05);
+  --color-card-foreground: #ffffff;
+
+  --color-popover: #0a0e1a;
+  --color-popover-foreground: #ffffff;
+
+  --color-primary: #0099ff;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: rgba(255, 255, 255, 0.1);
+  --color-secondary-foreground: #ffffff;
+
+  --color-muted: rgba(255, 255, 255, 0.05);
+  --color-muted-foreground: #94a3b8;
+
+  --color-accent: #38bdf8;
+  --color-accent-foreground: #0a0e1a;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-input: rgba(255, 255, 255, 0.1);
+  --color-ring: #0099ff;
+
+  --color-chart-1: #0099ff;
+  --color-chart-2: #38bdf8;
+  --color-chart-3: #1e3a5f;
+  --color-chart-4: #60a5fa;
+  --color-chart-5: #93c5fd;
+
+  --color-sidebar: #0a0e1a;
+  --color-sidebar-foreground: #94a3b8;
+  --color-sidebar-primary: #0099ff;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: rgba(255, 255, 255, 0.05);
+  --color-sidebar-accent-foreground: #ffffff;
+  --color-sidebar-border: rgba(255, 255, 255, 0.1);
+  --color-sidebar-ring: #0099ff;
+
+  --radius-lg: 12px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  :root {
+    --background: #0a0e1a;
+    --foreground: #ffffff;
+    --card: rgba(255, 255, 255, 0.05);
+    --card-foreground: #ffffff;
+    --popover: #0a0e1a;
+    --popover-foreground: #ffffff;
+    --primary: #0099ff;
+    --primary-foreground: #ffffff;
+    --secondary: rgba(255, 255, 255, 0.1);
+    --secondary-foreground: #ffffff;
+    --muted: rgba(255, 255, 255, 0.05);
+    --muted-foreground: #94a3b8;
+    --accent: #38bdf8;
+    --accent-foreground: #0a0e1a;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: rgba(255, 255, 255, 0.1);
+    --input: rgba(255, 255, 255, 0.1);
+    --ring: #0099ff;
+    --radius: 12px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    background-image: radial-gradient(circle at center, #16203a 0%, #0a0e1a 100%);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+    .original-presentation h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .original-presentation h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .original-presentation h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .original-presentation p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--muted-foreground);
+    }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-gradient-blue {
+    background: linear-gradient(to right, #0099ff, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .data-rain-mask {
+    mask-image: linear-gradient(to right, black 0%, transparent 15%, transparent 85%, black 100%);
+  }
+
+  .glowing-orb {
+    background: radial-gradient(circle, rgba(0, 153, 255, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
